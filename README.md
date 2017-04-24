@@ -1,4 +1,4 @@
-#Teams sample app for node.js
+# Teams sample app for node.js
 
 Included in this project is sample code for available features in Microsoft Teams
 
