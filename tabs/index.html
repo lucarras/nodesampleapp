@@ -1,0 +1,161 @@
+<html>
+	<head>
+		<title>My Tasks</title>
+		<script src="https://statics.teams.microsoft.com/sdk/v0.4/js/MicrosoftTeams.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+		<style type="text/css">
+			body{
+				margin:0;
+				background: transparent;
+				color: #222;
+				font-family: "Segoe UI Semilight","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+				font-size:80%;
+
+			}
+			#todos_container{
+				margin:0;
+				padding: 1% 2%;
+				display: flex;
+				width: 96%;
+    			height: 90%;
+    			min-width: 800px;
+			}
+			.day{
+				height: 100%;
+				width: 20%;
+				padding: 0 30px;
+				list-style: none;
+			}
+
+			.day li{
+				margin-bottom: 30px;
+			}
+
+			.title{
+				font-family: 'Segoe UI Bold', sans-serif;
+				font-size: 200%;
+				color: #3F487F;
+				text-align: center;
+			}
+
+			.task{
+			    min-height: 75px;
+			    padding: 20px 20px 10px 20px;
+			    background: #FFFFFF;
+			    cursor: -webkit-grab;
+			    box-shadow: 0 0 45px #DDD;
+			    border-radius: 5px;
+			}
+
+			.task:hover{
+				box-shadow: 0 0 45px #999;
+			}
+
+			.task h3{
+				font-family: 'Segoe UI Black', sans-serif;
+				color: #1d3470;
+				cursor: pointer;
+				font-size: 12px;
+				border-bottom: 1px solid #ccc;
+			}	
+
+			.task h3{
+				padding: 0 0 8px 0;
+				margin: 0;
+			}
+
+			.task p{
+				padding: 0;
+				margin: 7px 0;
+				font-family: 'Segoe UI Light', sans-serif;
+			}
+
+			.task p.assigned{
+				text-align: right;
+				font-family: 'Segoe UI Regular', sans-serif;
+			}
+
+			.task p.id{
+			    color: #CC0000;
+			    font-family: 'Segoe UI Black';
+			    text-align: right;
+			    margin: 0;
+			    font-size: 9px;
+			}
+
+			.task .image {
+			    width: 100%;
+			    height: 75px;
+			    background-size: cover;
+			    border-radius: 10px;
+			    background-position: center;
+			    background-repeat: no-repeat;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="todos_container">
+			
+		</div>
+
+		<script type="text/javascript">
+
+			function getURLParam(name){
+				var url = window.location.search.substring(1);
+				var variables = url.split('&');
+				for (var i = 0; i < variables.length; i++){
+					var variable = variables[i].split('=');
+					if (variable[0] === name){
+						return decodeURIComponent(variable[1]);
+					}
+				}
+			}
+
+			var teamId = getURLParam('teamId');
+			var numdays = getURLParam('numdays') || 5;
+			var channelId = getURLParam('channelId');
+			var color = getURLParam('color');
+
+			microsoftTeams.initialize();
+
+			var host = 'https://lucarras.azurewebsites.net';
+			$.get(`${host}/api/tasks/my?numdays=${numdays}`, function( data ) {
+			  console.log(data);			  
+
+			  var html = ``;
+
+			  for (var i = 0; i < data.length; i++){
+			  	var day = data[i];
+			  	var dayHTML = `
+			  		<ul id="friday" class="day">
+						<li class="title">
+							${day.title}
+						</li>
+					`;
+
+					for(var j = 0; j < data[i].tasks.length; j++){
+						var task = day.tasks[j];
+						var subentity = `${i}${j}`;
+						var image = `${host}/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`;
+						var taskHTML = `
+							<li class="task" style='background-color:${color}'>								
+								<p class="id">${subentity}</p>
+								<h3>${task.title}</h3>
+								<p>${task.description}</p>
+								<div class="image" style="background-image: url(${image});"></div>
+								<p class="assigned">${task.assigned}</p>
+							</li>
+						`;
+						dayHTML += taskHTML;
+					}
+
+				dayHTML += `</ul>`;
+				html += dayHTML;
+			  }
+
+			  $('#todos_container').html(html);
+			});
+		</script>
+	</body>
+</html>

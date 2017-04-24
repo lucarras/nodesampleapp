@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>My Tasks</title>
+		<script src="https://statics.teams.microsoft.com/sdk/v0.4/js/MicrosoftTeams.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+		<style type="text/css">
+			body{
+					margin:0;
+					background: transparent;
+					color: #222;
+					font-family: "Segoe UI Semilight","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+					font-size:80%;
+				}
+			.row{
+				padding: 10px 0px;
+			}
+			.row input{
+				border:none;
+				border-bottom: 1px solid #3F487F;
+				background-color: transparent;
+				margin: 0 5px;
+				padding: 3px 5px;
+			}
+
+			.row input:hover{background-color: rgba(0,0,0,0.05);}
+			.row input:active{background-color: rgba(0,0,0,0.1);}
+
+		</style>
+	</head>
+	<body>
+
+		<div class="row">
+			<label for="name">What would you like to name this tab: </label>
+			<input type="text" name="name" id="name" value="Our Tasks" />
+		</div>
+		<div class="row">
+			<label for="numdays">How many days would you like to track: </label>
+			<input type="text" name="numdays" id="numdays" value="4" />
+		</div>
+		<div class="row">
+			<label for="color">Pick a color for your tasks: </label>
+			<input type="text" name="color" id="color" value="#FFFFFF" />
+		</div>
+
+
+		<script type="text/javascript">
+			
+			var host = 'https://lucarras.azurewebsites.net';
+			var color = '';
+			var name = '';
+			var entity = '';
+			var numdays = '';
+			var url = '';
+			var context;
+
+			microsoftTeams.initialize();
+			microsoftTeams.settings.registerOnSaveHandler(function(saveEvent){
+
+				color = $('#color').val();
+				name = $('#name').val();
+				numdays = $('#numdays').val();	
+				url = `${host}/tabs/index?teamId=${encodeURIComponent(context.teamId)}&channelId=${encodeURIComponent(context.channelId)}&color=${encodeURIComponent(color)}&numdays=${numdays}`;
+					
+				entity = `todotab-${name}-${context.teamId}-${context.channelId}`
+
+				microsoftTeams.settings.setSettings({
+					entityId: entity,
+					contentUrl: url,
+					suggestedDisplayName: name,
+					websiteUrl: url
+				});
+
+			    saveEvent.notifySuccess();
+			});
+
+			setValid();
+
+			function setValid(){
+								
+
+				microsoftTeams.getContext((c) => {				
+					context = c;
+				});
+				
+			    microsoftTeams.settings.setValidityState(true);
+			}
+
+		</script>
+	</body>
+</html>
