@@ -51,7 +51,7 @@ Sample code for compose extensions exists in the "input" folder. This will show 
 Not implemented yet.
 
 
-##The packages
+## The packages
 
 You should be able to simply sideload these to any team. 
 
