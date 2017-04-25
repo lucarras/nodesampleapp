@@ -53,7 +53,7 @@ Not implemented yet.
 
 ## The packages
 
-You should be able to simply sideload these to any team. 
+The sideloadable packages are located in the apps folder. You should be able to simply sideload these to any team. 
 
 These versions of the packages point to our cloud hosted node js code
 * Bot.zip: contains a manifest with a bot. Ask it for help. This also contains tabs, connector, and input extensions plus the home screen. 
