@@ -53,7 +53,7 @@ function generateThumbnail(){
 			text: faker.fake('{{lorem.sentence}}'),
 			images: [
 				{
-					url: `https://b7636f11.ngrok.io/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`
+					url: `https://lucarras.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`
 				}
 			]
 		}
