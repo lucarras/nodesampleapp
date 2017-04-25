@@ -24,7 +24,7 @@ When the app is sideloaded it will start appearing the the "Apps" flyout on the 
 Sideloading connectors is still in the works, so for now you’ll have to set up the connector for this app as an incoming webhook. Click on the ... menu for any channel and select add connector. Then click on incoming webhook, type a name, upload an icon and then grab the webhook url. Use the link below to trigger messages.
 
 To trigger a message just paste this url in any browser:
-https://lucarras.azurewebsites.net/api/messages/connector/send?webhook_url=[webhook url]
+https://teamsnodesample.azurewebsites.net/api/messages/connector/send?webhook_url=[webhook url]
 
 The triggered message gives you buttons to send yourself more messages…this should be fun.
 

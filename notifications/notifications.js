@@ -12,7 +12,7 @@ var connectors = {};
 
 var appID = (process.env.ENVIROMENT === 'local') ? '[local app id]' : '8aefbb70-ff9e-409f-acea-986b61e51cd3';
 var appPassword = (process.env.ENVIROMENT === 'local') ? '[local app id]' : 'hoCDLUcGnab6KqKa3tkvpxJ';
-var host = (process.env.ENVIROMENT === 'local') ? 'http://localhost:3998/' : 'http://lucarras.azurewebsites.net/';
+var host = (process.env.ENVIROMENT === 'local') ? 'http://localhost:3998/' : 'http://teamsnodesample.azurewebsites.net/';
 
 var c = new builder.ChatConnector({
 	appId: appID,

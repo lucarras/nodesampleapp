@@ -8,7 +8,7 @@ module.exports.createHeroCard = function(builder) {
 		.title('This is a Hero Card')
 		.subtitle('Card subtitle')
 		.text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, risus ac placerat vestibulum, quam metus congue augue, sed placerat elit metus a odio. Suspendisse nec odio in elit bibendum mollis vel eu diam. Integer id mollis orci, sed iaculis nibh. Suspendisse venenatis lacus neque, quis semper arcu tempus sed. Nunc quam augue, pulvinar at eros ac, bibendum ornare metus. Phasellus vitae enim augue.')
-		.images([builder.CardImage.create(null, `https://lucarras.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`)])
+		.images([builder.CardImage.create(null, `https://teamsnodesample.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`)])
 		.buttons([
 			builder.CardAction.openUrl(null, 'http://www.microsoft.com', 'Microsoft'),
 			builder.CardAction.openUrl(null, 'https://products.office.com/en-us/microsoft-teams/group-chat-software', 'Teams'),
@@ -25,7 +25,7 @@ module.exports.createThumbnailCard = function(builder) {
 		.subtitle('Card subtitle')
 		.text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, risus ac placerat vestibulum, quam metus congue augue, sed placerat elit metus a odio. Suspendisse nec odio in elit bibendum mollis vel eu diam. Integer id mollis orci, sed iaculis nibh. Suspendisse venenatis lacus neque, quis semper arcu tempus sed. Nunc quam augue, pulvinar at eros ac, bibendum ornare metus. Phasellus vitae enim augue.')
 		.images([
-			builder.CardImage.create(null, `https://lucarras.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`)
+			builder.CardImage.create(null, `https://teamsnodesample.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`)
 		])
 		.buttons([
 			builder.CardAction.openUrl(null, 'http://www.microsoft.com', 'Microsoft'),
@@ -67,27 +67,27 @@ module.exports.generateConnectorCard = function(actions) {
 			'activityTitle': faker.fake("{{name.firstName}} {{name.lastName}}"),
 			'activitySubtitle': "On Project Tango",
 			'activityText': faker.fake("{{lorem.paragraphs}}"),
-			'activityImage': `https://lucarras.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`
+			'activityImage': `https://teamsnodesample.azurewebsites.net/static/img/image${Math.floor(Math.random() * (9 - 1 + 1)) + 1}.png`
 		}, {
 			'title': 'Images',
 			'images': [{
-				'image': `https://lucarras.azurewebsites.net/static/img/image1.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image1.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image2.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image2.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image3.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image3.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image4.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image4.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image5.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image5.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image6.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image6.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image7.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image7.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image8.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image8.png`
 			},{
-				'image': `https://lucarras.azurewebsites.net/static/img/image9.png`
+				'image': `https://teamsnodesample.azurewebsites.net/static/img/image9.png`
 			}]
 		}],
 		'potentialAction': []
