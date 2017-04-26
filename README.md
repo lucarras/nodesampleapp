@@ -58,3 +58,86 @@ The sideloadable packages are located in the apps folder. You should be able to 
 These versions of the packages point to our cloud hosted node js code
 * Bot.zip: contains a manifest with a bot. Ask it for help. This also contains tabs, connector, and input extensions plus the home screen. 
 * Notify.zip: contains the same manifest as above but it is a notifications only bot
+
+
+<style type="text/css">
+article.tabs
+{
+position: relative;
+display: block;
+height: 15em;
+margin: 2em auto;
+}
+article.tabs section
+{
+position: absolute;
+display: block;
+top: 1.8em;
+left: 0;
+height: 12em;
+padding: 10px 20px;
+border-radius: 5px;
+z-index: 0;
+background:#FFF;
+}
+article.tabs section:first-child
+{
+z-index: 1;
+}
+article.tabs section h2
+{
+position: absolute;
+font-size: 1em;
+font-weight: normal;
+width: 120px;
+height: 1.8em;
+top: -1.8em;
+left: 10px;
+padding: 0;
+margin: 0;
+}
+article.tabs section:nth-child(2) h2
+{
+left: 132px;
+}
+article.tabs section:nth-child(3) h2
+{
+left: 254px;
+}
+article.tabs section h2 a
+{
+display: block;
+width: 100%;
+line-height: 1.8em;
+text-align: center;
+text-decoration: none;
+color: inherit;
+outline: 0 none;
+}
+article.tabs section:target,
+article.tabs section:target h2
+{
+color: #333;
+background-color: #fff;
+z-index: 2;
+}
+</style>
+
+<article class="tabs">
+
+<section id="tab1">
+<h2><a href="#tab1">Tab 1</a></h2>
+<p>This content appears on tab 1.</p>
+</section>
+
+<section id="tab2">
+<h2><a href="#tab2">Tab 2</a></h2>
+<p>This content appears on tab 2.</p>
+</section>
+
+<section id="tab3">
+<h2><a href="#tab3">Tab 3</a></h2>
+<p>This content appears on tab 3.</p>
+</section>
+
+</article>
